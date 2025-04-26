@@ -1,5 +1,4 @@
 import { authClient } from "#/libs/auth";
-import Link from "next/link";
 
 export default async function Home() {
   const session = await authClient.getSession();
@@ -15,9 +14,11 @@ export default async function Home() {
           : "User is not logged in"}
       </h3>
       {isLoggedIn ? (
-        <Link href="/auth/logout">Logout</Link>
+        <a href="/auth/logout">Logout</a>
       ) : (
-        <Link href="/auth/login">Login</Link>
+        <>
+          <a href="/auth/login">Login / Register</a>
+        </>
       )}
     </div>
   );
